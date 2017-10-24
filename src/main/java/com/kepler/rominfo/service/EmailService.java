@@ -7,6 +7,8 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.UnsupportedEncodingException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Properties;
 
@@ -52,7 +54,7 @@ public class EmailService {
         });
     }
 
-    public void sendEmail(String email, String firstName, String token, boolean enabled) {
+    public void sendEmail(String email, String firstName, String token, boolean enabled) throws UnknownHostException {
         Session session = getPropertiesAndPrepareSession();
 
         try {
@@ -64,18 +66,18 @@ public class EmailService {
         }
     }
 
-    private MimeMessage generateMessage(Session session, String from, String email, String firstName, String token, boolean enabled) throws MessagingException {
+    private MimeMessage generateMessage(Session session, String from, String email, String firstName, String token, boolean enabled) throws MessagingException, UnknownHostException {
         // Create a default MimeMessage object.
         MimeMessage message = new MimeMessage(session);
-        String subject = null;
-        String messageText = null;
+        String subject;
+        String messageText;
 
         if(!enabled) {
             subject = "Confirm your email address for E-Learning";
-            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>This email was used to create an account on E-Learning platform.<br/><br/>To confirm your email address, click on the link below.</h3><br/><br/>" + URL_REGISTRATION_CONFIRMATION + token+"<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>";
+            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>This email was used to create an account on E-Learning platform.<br/><br/>To confirm your email address, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getHostName() + "confirmRegistration?token="+ token +"<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>";
         } else {
             subject = "Reset Password for E-Learning";
-            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>You have requested a reset password for your account on E-Learning platform.<br/><br/>In order to reset your current password and set a new one, click on the link below.</h3><br/><br/>" + URL_RESET_PASSWORD + token+"<br/><br/><h5>If you did not make such a request, feel free to ignore this email.</h5>";
+            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>You have requested a reset password for your account on E-Learning platform.<br/><br/>In order to reset your current password and set a new one, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getHostName() + "resetPassword?token="+ token +"<br/><br/><h5>If you did not make such a request, feel free to ignore this email.</h5>";
         }
 
         // Set From: header field of the header.
