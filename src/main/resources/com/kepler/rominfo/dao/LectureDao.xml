@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.LectureDao">
 
-    <resultMap type="Lecture" id="LectureResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Lecture" id="LectureResult">
         <id property="lectureId" column="lectureid"/>
         <result property="name" column="name"/>
         <result property="attachment" column="attachment"/>

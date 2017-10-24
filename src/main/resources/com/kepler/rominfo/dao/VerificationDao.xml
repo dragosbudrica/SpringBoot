@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.VerificationDao">
 
-    <resultMap type="Verification" id="VerificationResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Verification" id="VerificationResult">
         <id property="verificationId" column="verificationid"/>
         <result property="token" column="token"/>
         <result property="expiryDate" column="expirydate"/>
@@ -12,7 +12,7 @@
         <association property="user" resultMap="UserResult" columnPrefix="user_"/>
     </resultMap>
 
-    <resultMap type="User" id="UserResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.User" id="UserResult">
         <id property="userId" column="userid"/>
         <result property="email" column="email"/>
         <result property="firstName" column="firstname"/>

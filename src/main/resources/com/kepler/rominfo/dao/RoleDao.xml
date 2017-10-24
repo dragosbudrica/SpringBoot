@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.RoleDao">
 
-    <resultMap type="Role" id="RoleResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Role" id="RoleResult">
         <id property="roleId" column="roleid"/>
         <result property="roleName" column="rolename"/>
     </resultMap>

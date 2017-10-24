@@ -21,7 +21,7 @@
         <collection property="courses" resultMap="StudentResult" />
     </resultMap>
 
-    <resultMap type="Category" id="CategoryResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Category" id="CategoryResult">
         <id property="categoryId" column="categoryid"/>
         <result property="categoryName" column="categoryname"/>
     </resultMap>

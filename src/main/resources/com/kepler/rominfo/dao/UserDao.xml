@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.UserDao">
 
-    <resultMap type="User" id="UserResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.User" id="UserResult">
         <id property="userId" column="userid"/>
         <result property="firstName" column="firstname"/>
         <result property="lastName" column="lastname"/>
@@ -18,22 +18,22 @@
         <association property="verification" resultMap="VerificationResult" columnPrefix="verification_"/>
     </resultMap>
 
-    <resultMap type="Role" id="RoleResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Role" id="RoleResult">
         <id property="roleId" column="roleid"/>
         <id property="roleName" column="rolename"/>
     </resultMap>
 
-    <resultMap type="Verification" id="VerificationResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Verification" id="VerificationResult">
         <id property="verificationId" column="verificationid"/>
         <result property="token" column="token"/>
         <result property="expiryDate" column="expirydate"/>
     </resultMap>
 
-    <resultMap type="Student" id="StudentResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Student" id="StudentResult">
         <id property="studentId" column="studentid"/>
     </resultMap>
 
-    <resultMap type="Professor" id="ProfessorResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Professor" id="ProfessorResult">
         <id property="professorId" column="professorid"/>
     </resultMap>
 

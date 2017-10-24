@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.ResourceDao">
 
-    <resultMap type="Resource" id="ResourceResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Resource" id="ResourceResult">
         <id property="resourceId" column="resourceid"/>
         <result property="resourceName" column="resourcename"/>
     </resultMap>

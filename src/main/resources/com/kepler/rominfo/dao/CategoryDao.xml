@@ -4,7 +4,7 @@
 
 <mapper namespace="com.kepler.rominfo.dao.CategoryDao">
 
-    <resultMap type="Category" id="CategoryResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Category" id="CategoryResult">
         <id property="categoryId" column="categoryid"/>
         <result property="categoryName" column="categoryname"/>
     </resultMap>
