@@ -19,10 +19,10 @@ public class EmailService {
     private static final String URL_RESET_PASSWORD = "http://localhost:8080/resetPassword?token=";
     private static final String CONFIRM_REGISTRATION = "Confirm Registration";
     private static final String RESET_PASSWORD = "Reset Password";
-    private static final String HOST = "smtp.gmail.com";
+    private static final String HOST = "smtp.mail.yahoo.com";
     private static final String USERNAME = "studentenrollment2018";
     private static final String PASSWORD = "enrollment021293";
-    private static final String PORT = "587";
+    private static final String PORT = "25";
     private static final String FROM = "E-Learning";
 
      void sendEmailForCourseReminder(String courseName, List<User> students, long timeBeforeCourse) {
