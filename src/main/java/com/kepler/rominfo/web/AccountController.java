@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.jws.WebParam;
+import java.net.UnknownHostException;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Map;
@@ -71,7 +72,7 @@ public class AccountController {
     @ApiOperation(value = "Redirect to Reset Password View")
     @GetMapping(value = "/resetPassword")
     public String resetPassword(Model model, @RequestParam(value = "token", required = false) String token, Locale locale) {
-        String message = null;
+        String message;
         if(token != null) {
             Verification verification = verificationService.getVerificationByToken(token);
             if(verification != null) {
@@ -104,13 +105,17 @@ public class AccountController {
     @GetMapping(value = "/sendEmailAgain")
     public RedirectView sendConfirmationEmailAgain(@RequestParam(value = "email", required = false) String email, RedirectAttributes attributes, Locale locale) {
         RedirectView view = new RedirectView("confirmationEmail");
-        String message = null;
+        String message;
 
         if(email != null) {
             User user = userService.findUser(email);
             if(user != null && !user.isEnabled()) {
                 String token = verificationService.updateVerification(user.getUserId());
-                emailService.sendEmail(user.getEmail(), user.getFirstName(), token, false);
+                try {
+                    emailService.sendEmail(user.getEmail(), user.getFirstName(), token, false);
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
                 message =  messageSource.getMessage("newAccount.confirm", new Object[]{email}, locale);
                 attributes.addFlashAttribute("message", message);
             }
@@ -135,8 +140,8 @@ public class AccountController {
     @ApiOperation(value = "Send email for password reset")
     @PostMapping(value = "/sendEmailForgotPassword")
     public RedirectView sendEmailForgotPassword(@ModelAttribute("resetPasswordDto") ForgotPasswordDto forgotPasswordDto, Locale locale, RedirectAttributes attributes) {
-        RedirectView view = null;
-        String message = null;
+        RedirectView view;
+        String message;
 
         String email = forgotPasswordDto.getEmail();
         User user = userService.findUser(email);
@@ -150,7 +155,11 @@ public class AccountController {
             view = new RedirectView("forgotPassword");
         } else {
             String token = verificationService.addVerification(user.getUserId());
-            emailService.sendEmail(user.getEmail(), user.getFirstName(), token, true);
+            try {
+                emailService.sendEmail(user.getEmail(), user.getFirstName(), token, true);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
             message = messageSource.getMessage("account.forgotPasswordSendEmail", new Object[]{email}, locale);
             attributes.addFlashAttribute("message", message);
             view = new RedirectView("resetPasswordEmail");
@@ -195,7 +204,7 @@ public class AccountController {
     @ApiOperation(value = "Redirect to Registration Confirmation View")
     @GetMapping(value = "/confirmRegistration")
     public RedirectView confirmRegistration(@RequestParam(value = "token", required = false) String token, Locale locale, RedirectAttributes attributes) {
-        String message = null;
+        String message;
 
         if(token != null) {
             Verification verification = verificationService.getVerificationByToken(token);
@@ -214,7 +223,7 @@ public class AccountController {
     @PostMapping(value = "/addNewProfessorAccount")
     public @ResponseBody
     BusinessMessageAndCode addNewProfessorAccount(@RequestBody Map<String, Object> params, Locale locale) {
-        String result = null;
+        String result;
         int code;
 
         String firstName = (String) params.get("firstName");
@@ -241,8 +250,8 @@ public class AccountController {
     @ApiOperation(value = "Add New Student Account")
     @PostMapping(value = "/addNewStudentAccount")
     public RedirectView addNewStudentAccount(@ModelAttribute("registerStudentDto") RegisterStudentDto registerStudentDto, Locale locale, RedirectAttributes attributes) {
-        String message = null;
-        RedirectView view = null;
+        String message;
+        RedirectView view;
 
         String firstName = registerStudentDto.getFirstName();
         String lastName = registerStudentDto.getLastName();
@@ -256,7 +265,11 @@ public class AccountController {
             userService.addUser(firstName, lastName, Long.parseLong(ssn), email, password, role, false);
             user = userService.findUser(email);
             String token = verificationService.addVerification(user.getUserId());
-            emailService.sendEmail(email, firstName, token, user.isEnabled());
+            try {
+                emailService.sendEmail(email, firstName, token, user.isEnabled());
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
             message =  messageSource.getMessage("newAccount.confirm", new Object[]{email}, locale);
             attributes.addFlashAttribute("message", message);
             view = new RedirectView("confirmationEmail");
