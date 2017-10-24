@@ -16,6 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +61,11 @@ public class NotificationService {
         List<Verification> allUnverifiedEntities = verificationService.getAllUnverifiedEntities();
         for (Verification verification : allUnverifiedEntities) {
             if (getDateDiff(currentTime, verification.getExpiryDate(), TimeUnit.MINUTES) == TIME_BEFORE_TOKEN_ERASING) {
-                emailService.sendEmailForConfirmationReminder(verification.getUser(), verification.getToken());
+                try {
+                    emailService.sendEmailForConfirmationReminder(verification.getUser(), verification.getToken());
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

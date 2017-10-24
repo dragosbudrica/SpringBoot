@@ -74,10 +74,10 @@ public class EmailService {
 
         if(!enabled) {
             subject = "Confirm your email address for E-Learning";
-            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>This email was used to create an account on E-Learning platform.<br/><br/>To confirm your email address, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getHostName() + "confirmRegistration?token="+ token +"<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>";
+            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>This email was used to create an account on E-Learning platform.<br/><br/>To confirm your email address, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getCanonicalHostName() + "/confirmRegistration?token="+ token +"<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>";
         } else {
             subject = "Reset Password for E-Learning";
-            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>You have requested a reset password for your account on E-Learning platform.<br/><br/>In order to reset your current password and set a new one, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getHostName() + "resetPassword?token="+ token +"<br/><br/><h5>If you did not make such a request, feel free to ignore this email.</h5>";
+            messageText = "<h3>Hi, <b>" + firstName + "</b>!<br/><br/>You have requested a reset password for your account on E-Learning platform.<br/><br/>In order to reset your current password and set a new one, click on the link below.</h3><br/><br/>" + InetAddress.getLocalHost().getCanonicalHostName() + "/resetPassword?token="+ token +"<br/><br/><h5>If you did not make such a request, feel free to ignore this email.</h5>";
         }
 
         // Set From: header field of the header.
@@ -133,7 +133,7 @@ public class EmailService {
         return properties;
     }
 
-    void sendEmailForConfirmationReminder(User user, String token) {
+    void sendEmailForConfirmationReminder(User user, String token) throws UnknownHostException {
         Session session = getPropertiesAndPrepareSession();
         String email = user.getEmail();
         String firstName = user.getFirstName();
@@ -147,7 +147,7 @@ public class EmailService {
         }
     }
 
-    private MimeMessage generateMessageForConfirmationReminder(Session session, String from, String to, String firstName, String token) throws MessagingException {
+    private MimeMessage generateMessageForConfirmationReminder(Session session, String from, String to, String firstName, String token) throws MessagingException, UnknownHostException {
         // Create a default MimeMessage object.
         MimeMessage message = new MimeMessage(session);
 
@@ -164,7 +164,7 @@ public class EmailService {
         message.setSubject("Confirmation reminder");
 
         // Now set the actual message
-        message.setText("<h3>Hi, <b>" + firstName + "</b>!<br/><br/>The verification token will expire in 24 hours. In order to use your account on E-Learning platform, you have to confirm registration by clicking on the link below.<br/><br/></h3><br/><br/>" + URL_REGISTRATION_CONFIRMATION + token+"<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>", null, "html");
+        message.setText("<h3>Hi, <b>" + firstName + "</b>!<br/><br/>The verification token will expire in 24 hours. In order to use your account on E-Learning platform, you have to confirm registration by clicking on the link below.<br/><br/></h3><br/><br/>" + InetAddress.getLocalHost().getCanonicalHostName() + "/confirmRegistration?token=" + token + "<br/><br/><h5>If you haven't done this, feel free to ignore this email.</h5>", null, "html");
         return message;
     }
 }
