@@ -15,7 +15,7 @@
         <result property="categoryName" column="categoryname"/>
     </resultMap>
 
-    <resultMap type="Course" id="CourseResult">
+    <resultMap type="com.kepler.rominfo.domain.vo.Course" id="CourseResult">
         <id property="courseCode" column="coursecode"/>
         <result property="courseName" column="coursename"/>
         <result property="description" column="description"/>
@@ -29,13 +29,13 @@
         <association property="category" resultMap="CategoryResult" columnPrefix="cat_"/>
     </resultMap>
 
-    <resultMap type="Course" id="CourseResultProf">
+    <resultMap type="com.kepler.rominfo.domain.vo.Course" id="CourseResultProf">
         <id property="courseCode" column="coursecode"/>
         <result property="courseName" column="coursename"/>
         <association property="user" resultMap="UserResult" columnPrefix="user_"/>
     </resultMap>
 
-    <resultMap type="Course" id="CourseResultCat">
+    <resultMap type="com.kepler.rominfo.domain.vo.Course" id="CourseResultCat">
         <id property="courseCode" column="coursecode"/>
         <result property="courseName" column="coursename"/>
         <association property="category" resultMap="CategoryResult" columnPrefix="cat_"/>
