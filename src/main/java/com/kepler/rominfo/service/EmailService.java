@@ -20,7 +20,7 @@ public class EmailService {
     private static final String CONFIRM_REGISTRATION = "Confirm Registration";
     private static final String RESET_PASSWORD = "Reset Password";
     private static final String HOST = "smtp.mail.yahoo.com";
-    private static final String USERNAME = "studentenrollment2018";
+    private static final String USERNAME = "studentenrollment2018@yahoo.com";
     private static final String PASSWORD = "enrollment021293";
     private static final String PORT = "25";
     private static final String FROM = "E-Learning";
