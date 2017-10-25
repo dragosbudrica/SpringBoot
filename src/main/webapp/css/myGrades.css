@@ -28,3 +28,11 @@ td span {
     display: none;
     text-align: center;
 }
+
+.notValidated {
+    color: red;
+}
+
+.validated {
+    color: green;
+}

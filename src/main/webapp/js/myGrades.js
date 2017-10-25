@@ -39,8 +39,10 @@ MyGrades.renderCourses = function renderCourses(data) {
         tr.append("<td>" + data[i].courseName + "</td>");
         tr.append("<td>" + data[i].category + "</td>");
         tr.append("<td>" + data[i].professor + "</td>");
-        if(validated) {
-            tr.append("<td>" + result + "</td>");
+        if(result && validated) {
+            tr.append("<td class='validated'>" + result + "</td>");
+        } else if(result && !validated) {
+            tr.append("<td class='notValidated' title='Not validated by Admin'>" + result + "</td>");
         } else {
             tr.append("<td>" + noGrade + "</td>");
         }

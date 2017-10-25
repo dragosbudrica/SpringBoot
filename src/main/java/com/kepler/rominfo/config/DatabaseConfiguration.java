@@ -21,13 +21,13 @@ import java.util.Properties;
 @MapperScan("com.kepler.rominfo.dao")
 public class DatabaseConfiguration {
 
-  /*  @Bean(name = "dataSource")
+   /* @Bean(name = "dataSource")
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://ec2-23-23-249-169.compute-1.amazonaws.com:5432/d6fseipbka74t?sslmode=disable&user=xueetvgwcenvyr&password=3b89084dae6358e5f4e1f532fbae7da7a1d166e5cd4232510d0c2efe726a62cd");
-        dataSource.setUsername("xueetvgwcenvyr");
-        dataSource.setPassword("3b89084dae6358e5f4e1f532fbae7da7a1d166e5cd4232510d0c2efe726a62cd");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/databaseTest");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("password");
         return dataSource;
     }*/
 
