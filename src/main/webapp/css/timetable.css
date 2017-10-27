@@ -7,7 +7,11 @@ body {
 }
 
 #content {
-    width: 50%;
-    margin-top: 60px;
-    margin-left: 300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#warning {
+    display: none;
+    color: red;
 }

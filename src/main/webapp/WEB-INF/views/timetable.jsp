@@ -5,7 +5,7 @@
 <%@ page session="true" %>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' rel='stylesheet'/>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css' rel='stylesheet'
           media='print'/>
@@ -20,9 +20,13 @@
 <body>
 <div id="content">
     <div id='calendar'></div>
-    <div id='imageEn' style="display:none"><img src="/resources/images/under-construction-en.png" alt=""/></div>
-    <div id='imageFr' style="display:none"><img src="/resources/images/under-construction-fr.png" alt=""/></div>
-    <div id='imageRo' style="display:none"><img src="/resources/images/under-construction-ro.png" alt=""/></div>
+  <%--  <div id='imageEn'><img src="/resources/images/rsz_under-construction-en.png" alt=""/></div>
+    <div id='imageFr'><img src="/resources/images/rsz_under-construction-fr.png" alt=""/></div>
+    <div id='imageRo'><img src="/resources/images/rsz_under-construction-ro.png" alt=""/></div>--%>
+    <div id="warning">
+        <img alt="" src="/resources/images/rsz_icon-warning-png-11.png"/>
+        <h1></h1>
+    </div>
 </div>
 </body>
 </html>

@@ -7,6 +7,7 @@ $(document).ready(function () {
 Timetable.getEvents = function getEvents() {
     var index;
     var courses = [];
+    var warning = $("#warning");
     $.ajax({
         url: '/getEvents',
         type: 'GET',
@@ -18,15 +19,10 @@ Timetable.getEvents = function getEvents() {
                     courses.push({'title' : data[index].courseName, 'start' : new Date(data[index].startTime), 'end': new Date(data[index].endTime)});
                 }
                 Timetable.displayEvents(courses);
-            } else if(data.locale === 'en') {
+            } else {
                 $("#calendar").hide();
-                $("#imageEn").show();
-            } else if(data.locale === 'fr') {
-                $("#calendar").hide();
-                $("#imageFr").show();
-            } else if(data.locale === 'ro') {
-                $("#calendar").hide();
-                $("#imageRo").show();
+                warning.find('h1').html(data.message);
+                warning.show();
             }
         },
         error: function (data) {

@@ -54,6 +54,8 @@ public class TimetableController {
     BusinessMessageAndCode getEvents(Locale locale) {
         List<CourseDto> events = new ArrayList<CourseDto>();
         int code;
+        String message = null;
+
         boolean timetableUnderConstruction = false;
         for (Course course : courseService.getAllCourses()) {
             if (course.getStartTime() == null) {
@@ -70,9 +72,10 @@ public class TimetableController {
             code = BusinessMessageAndCode.SUCCESS;
         } else {
             code = BusinessMessageAndCode.ERROR;
+            message = messageSource.getMessage("timetable.warning", null, locale);
         }
 
-        return new BusinessMessageAndCode(events, locale, code);
+        return new BusinessMessageAndCode(events, message, code);
     }
 
     @ApiOperation(value = "Get Course Events")

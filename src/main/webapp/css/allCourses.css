@@ -3,7 +3,7 @@ body {
 }
 
 #allCourses {
-    margin: 50px 50px 10px 10px;
+    margin: 0 auto;
     float: left;
     display: none;
 }
@@ -67,7 +67,7 @@ p {
     height: 200px;
     background-color: lightblue;
     border-radius: 4px;
-    margin: 300px 250px 100px 480px;
+    margin: 0 auto;
     z-index: 1000;
     display: none;
     position: absolute;
