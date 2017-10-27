@@ -21,7 +21,7 @@ import java.util.Properties;
 @MapperScan("com.kepler.rominfo.dao")
 public class DatabaseConfiguration {
 
-    @Bean(name = "dataSource")
+  /*  @Bean(name = "dataSource")
     public DataSource dataSource() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
@@ -29,9 +29,9 @@ public class DatabaseConfiguration {
         dataSource.setUsername("postgres");
         dataSource.setPassword("password");
         return dataSource;
-    }
+    }*/
 
-  /*  @Bean(name = "dataSource")
+    @Bean(name = "dataSource")
     public BasicDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
@@ -45,7 +45,7 @@ public class DatabaseConfiguration {
         basicDataSource.setPassword(password);
 
         return basicDataSource;
-    }*/
+    }
 
     @Bean
     public DataSourceTransactionManager transactionManager() throws URISyntaxException {
