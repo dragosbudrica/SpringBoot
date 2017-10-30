@@ -1,4 +1,4 @@
-html{
+/*html{
     background-color:#2F2F2F;
 }
 
@@ -9,26 +9,24 @@ body{
 
 
 #header {
-    margin-left:230px;
     top: 0;
-    width: calc(100% - 230px);
+    width: 113%;
     height: 5%;
     position: fixed;
     font-family: 'bgMed',arial,helvetica,sans-serif;
     font-size: 0.6em;
     color: #fff;
     z-index: 15;
-    /* text-transform: uppercase;*/
+    !* text-transform: uppercase;*!
     background-color: #272727;
     border-bottom: 2px solid hsl(180,70%,55%);
     padding-top:20px;
 }
 
 #footer {
-    margin-left:230px;
     left: 0;
     bottom: 0;
-    width: calc(100% - 230px);
+    width: 113%;
     height: 5%;
     position: fixed;
     font-family: 'bgMed',arial,helvetica,sans-serif;
@@ -49,7 +47,7 @@ body{
 
 
 #sidemenu {
-    width: 230px;
+    width: 14%;
     background-color:#2B2B2B;
     height: 100%;
     overflow: auto;
@@ -57,22 +55,21 @@ body{
     z-index: 20;
     position: relative;
     left: 0;
-    margin-top: 0;
+    top: 0;
 }
 
 #sidemenu #menu {
     color: #fff;
     text-align: left;
     list-style-type: none;
-    margin-right: 20px;
-    float: right;
+    float: left;
 }
 
 #sidemenu #menu li {
-    width: 200px;
-    height: 35px;
-    font-size: 1.2em;
-    padding-right:5px;
+  !*  width: 7%;
+    height: 1%;*!
+    width: 100%;
+    font-size: 1.2vw;
 }
 
 #sidemenu #menu li a {
@@ -107,5 +104,5 @@ body{
     padding-left:10px;
     margin-top: 80px;
     margin-bottom: 100px;
-}
+}*/
 
