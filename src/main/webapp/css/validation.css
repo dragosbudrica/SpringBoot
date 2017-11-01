@@ -3,7 +3,7 @@ body {
 }
 
 #allCourses {
-    margin: 50px 50px 10px 10px;
+    margin: 0 20px 0 0;
     float: left;
     display: none;
 }
@@ -25,7 +25,7 @@ td span {
 #validation {
     float:left;
     display: none;
-    margin: 80px 10px 10px 10px;
+    margin: 20px auto 0 auto;
 }
 
 #paginationValidation a {
@@ -99,4 +99,12 @@ td span {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+select {
+    color: rgba(0, 0, 0, 0.81);
+}
+
+input[type='checkbox'] {
+
 }

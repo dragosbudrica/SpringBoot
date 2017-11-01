@@ -6,10 +6,6 @@ body {
     margin: 11% 20% 15% 25%;
 }
 
-#content {
-    width: 100%;
-    margin: 0 auto;
-}
 
 #warning {
     display: none;

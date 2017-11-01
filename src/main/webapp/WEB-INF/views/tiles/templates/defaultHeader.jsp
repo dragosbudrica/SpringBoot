@@ -7,6 +7,7 @@
 <c:if test="${not empty sessionScope.user}">
     <form action="logout" method="post">
         <h2><spring:message code="welcome.message" arguments="${firstName}" /> </h2>
-        <button id=logout><img src="/resources/images/rsz_56805.png"></button>
+       <%-- <button id=logout><img src="/resources/images/rsz_56805.png"></button>--%>
+        <button id=logout>Logout</button>
     </form>
 </c:if>

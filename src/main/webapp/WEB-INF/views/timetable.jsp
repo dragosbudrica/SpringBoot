@@ -18,14 +18,11 @@
     <script type="text/javascript" src="/js/timetable.js"></script>
 </head>
 <body>
-<div id="content">
+<div id="timetable">
     <div id='calendar'></div>
-  <%--  <div id='imageEn'><img src="/resources/images/rsz_under-construction-en.png" alt=""/></div>
-    <div id='imageFr'><img src="/resources/images/rsz_under-construction-fr.png" alt=""/></div>
-    <div id='imageRo'><img src="/resources/images/rsz_under-construction-ro.png" alt=""/></div>--%>
     <div id="warning">
         <img alt="" src="/resources/images/rsz_icon-warning-png-11.png"/>
-        <h1></h1>
+        <h4></h4>
     </div>
 </div>
 </body>

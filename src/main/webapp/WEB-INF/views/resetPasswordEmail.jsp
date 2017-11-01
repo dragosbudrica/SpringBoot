@@ -11,7 +11,7 @@
 <body>
 <c:if test="${not empty message}">
     <div class="reset-title">
-        <h1><spring:message code="resetPassword.email"/></h1>
+        <h2><spring:message code="resetPassword.email"/></h2>
     </div>
     <div id="success">
         <img alt="" src="/resources/images/rsz_success-icon.png"/>

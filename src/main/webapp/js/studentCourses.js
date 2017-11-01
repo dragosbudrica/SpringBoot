@@ -13,7 +13,7 @@ StudentCourses.getStudentCourses = function getStudentCourses() {
         traditional: true,
         success: function (data) {
             if (data.code !== 0) {
-                $(warning).find('h1').html(data.message);
+                $(warning).find('h2').html(data.message);
                 warning.show();
             } else {
                 Utils.sortCourseAscending(data.object);

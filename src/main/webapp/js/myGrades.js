@@ -13,7 +13,7 @@ MyGrades.getMyCoursesWithGrades = function getMyCoursesWithGrades() {
         traditional: true,
         success: function (data) {
             if (data.length === 0) {
-                $(warning).find('h1').html("You aren't enrolled to any course yet!");
+                $(warning).find('h2').html("You aren't enrolled to any course yet!");
                 warning.show();
             } else {
                 Utils.sortCourseAscending(data);

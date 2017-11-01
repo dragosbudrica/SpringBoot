@@ -9,12 +9,12 @@ body {
     width: 100%;
     border-top: 5px solid #33b5e5;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
 }
 
 .form-module .form {
     display: none;
-    padding: 40px;
+    padding: 15px;
 }
 .form-module .form:nth-child(2) {
     display: block;

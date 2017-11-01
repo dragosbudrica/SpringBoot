@@ -13,11 +13,11 @@ RegistrationConfirmation.getRegistrationConfirmationResult = function getRegistr
         success: function (data) {
             var message = $("#message");
             if (data.code === 0) {
-                message.find('h1').html(data.message);
+                message.find('h2').html(data.message);
                 message.css('color', 'green');
             }
             else {
-                message.find('h1').html(data.message);
+                message.find('h2').html(data.message);
                 message.css('color', 'red');
             }
         },

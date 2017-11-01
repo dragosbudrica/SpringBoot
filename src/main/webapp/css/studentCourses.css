@@ -6,7 +6,7 @@ table thead th {
     text-align: left;
     background-color: #3a6070;
     color: #FFF;
-    padding: 4px 30px 4px 8px;
+    padding: 4px 4px 4px 8px;
 }
 
 td span {
@@ -21,7 +21,7 @@ td span {
 }
 
 #studentCourses {
-    margin: 50px 50px 10px 10px;
+    margin: 0 20px 0 0;
     float: left;
     display: none;
 }
@@ -34,7 +34,7 @@ td span {
 #courseDetails {
     float:left;
     display: none;
-    margin: 60px 10px 10px 10px;
+    margin: 0 auto;
 }
 
 #message {

@@ -31,10 +31,10 @@
 
 <div id="warning">
     <img alt="" src="/resources/images/rsz_icon-warning-png-11.png"/>
-    <h1></h1>
+    <h2></h2>
 </div>
 <div id="myCourses">
-    <h1><spring:message code="global.myCourses"/></h1>
+    <h2><spring:message code="global.myCourses"/></h2>
     <table id="coursesGrid">
         <thead>
         <tr>
@@ -53,7 +53,7 @@
 </div>
 
 <div id="warning2">
-    <h1></h1>
+    <h2></h2>
 </div>
 
 <div id="grades" data-courseCode="">

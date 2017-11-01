@@ -20,17 +20,18 @@ body {
 }
 
 .options {
-    position: relative;
+    position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
+    margin-bottom: 10px;
 }
 
 .options button {
     text-decoration: rgba(27,13,13,0.71);
     color: #2B2B2B;
     text-align: center;
-    padding: 15px 0;
+ /*   padding: 15px 0;*/
 }
 
 .options button:first-child {
@@ -47,7 +48,8 @@ body {
 
 p {
     font-size: 15px;
-    line-height: 100px;
+    /*line-height: 100px;*/
+    padding-top: 20px;
 }
 
 .close {
@@ -63,7 +65,7 @@ p {
 }
 
 #enrollDialog {
-    width: 400px;
+    width: 320px;
     height: 200px;
     background-color: lightblue;
     border-radius: 4px;
@@ -73,6 +75,7 @@ p {
     position: absolute;
     text-align:center;
 }
+
 
 #message {
     display: none;

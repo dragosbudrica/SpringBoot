@@ -8,11 +8,11 @@ body {
 }
 
 #deleteDialog {
-    width: 400px;
+    width: 320px;
     height: 200px;
     background-color: lightblue;
     border-radius: 4px;
-    margin: 300px 250px 100px 480px;
+    margin: 0 auto;
     z-index: 1000;
     display: none;
     position: absolute;
@@ -20,15 +20,14 @@ body {
 }
 
 #addDialog {
-    width: 600px;
+    width: 320px;
     height: 580px;
     background-color: lightblue;
     border-radius: 4px;
-    margin: 150px 250px 100px 400px;
+    margin: 0 auto;
     z-index: 1000;
     display: none;
     position: absolute;
-    overflow: hidden;
 }
 
 #addDialog .form-module {
@@ -40,21 +39,23 @@ body {
 
 p {
     font-size: 15px;
-    line-height: 100px;
+/*    line-height: 100px;*/
+    padding-top: 20px;
 }
 
 .options {
-    position: relative;
+    position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
+    margin-bottom: 10px;
 }
 
 .options button {
     text-decoration: rgba(27,13,13,0.71);
     color: #2B2B2B;
     text-align: center;
-    padding: 15px 0;
+/*    padding: 15px 0;*/
 }
 
 .options button:first-child {
@@ -94,15 +95,20 @@ p {
 
 
 #professorCourses {
-    margin: 50px 50px 10px 10px;
+    margin: 0 20px 0 0;
     float:left;
     display:none;
+}
+
+#tbodyLectures td input {
+    font-size: 10px;
 }
 
 #courseDetails {
     float:left;
     display: none;
-    margin: 60px 10px 10px 10px;
+ /*   margin: 60px 10px 10px 10px;*/
+    margin: 0 auto;
 }
 
 

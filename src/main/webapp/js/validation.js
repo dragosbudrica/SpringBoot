@@ -13,7 +13,7 @@ Validation.getAllCourses = function getAllCourses() {
         traditional: true,
         success: function (data) {
             if (data.code !== 0) {
-                $(warning).find('h1').html(data.message);
+                $(warning).find('h2').html(data.message);
                 warning.show();
             } else {
                 Utils.sortCourseAscending(data.object);
@@ -77,11 +77,11 @@ Validation.getEnrolledStudents = function getEnrolledStudents() {
             console.log(data.message);
             if (data.code !== 0 && data.object.length === 0) {
                 validation.hide();
-                $(warning2).find('h1').html(data.message);
+                $(warning2).find('h2').html(data.message);
                 warning2.show();
             } else if (data.code !== 0 && data.object.length !== 0) {
                 validation.hide();
-                $(warning2).find('h1').html(data.message);
+                $(warning2).find('h2').html(data.message);
                 warning2.show();
             } else {
                 warning2.hide();

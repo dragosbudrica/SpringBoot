@@ -32,7 +32,7 @@
             <!--Description-->
             <div class="input_with_error">
                 <label for="newCourse_description"><spring:message code="newCourse.description"/></label>
-                <textarea id="newCourse_description" rows="5" cols="57" name="description" maxlength="255"
+                <textarea id="newCourse_description" rows="1" cols="57" name="description" maxlength="255"
                           style="resize: none" onkeyup="Utils.countChar(this)"></textarea>
                 <span class="error"><spring:message code="global.required"/></span>
                 <div id="charNum"></div>

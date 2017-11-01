@@ -21,7 +21,7 @@ Timetable.getEvents = function getEvents() {
                 Timetable.displayEvents(courses);
             } else {
                 $("#calendar").hide();
-                warning.find('h1').html(data.message);
+                warning.find('h4').html(data.message);
                 warning.show();
             }
         },
