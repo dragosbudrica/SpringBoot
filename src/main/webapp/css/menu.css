@@ -63,15 +63,6 @@ The content `<div>` is where all your content goes.
     display: inline;
 }
 
-#logout {
-    display: inline;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.75);
-    position: fixed;
-    padding: 0.7em 0.7em 0.7em 0.7em;
-    color: whitesmoke;
-    z-index: 10;
-}
 
 #footer {
     margin: 0;

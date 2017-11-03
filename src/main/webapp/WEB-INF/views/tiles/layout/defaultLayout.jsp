@@ -10,27 +10,30 @@
     <title><tiles:getAsString name="title"/></title>
     <link rel="stylesheet" href="/css/layout.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="/resources/images/favicon.ico"/>
+    <script>/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }</script>
 </head>
 
 <body>
 <div id="layout" class="">
 
-    <div id="menu">
-        <tiles:insertAttribute name="menu"/>
+    <div id="header">
+        <tiles:insertAttribute name="header"/>
     </div>
 
-    <div id="container">
-        <div id="header">
-            <tiles:insertAttribute name="header"/>
-        </div>
+    <div id="content">
+        <tiles:insertAttribute name="content"/>
+    </div>
 
-        <div id="content">
-            <tiles:insertAttribute name="content"/>
-        </div>
-
-        <div id="footer">
-            <tiles:insertAttribute name="footer"/>
-        </div>
+    <div id="footer">
+        <tiles:insertAttribute name="footer"/>
     </div>
 
 </div>

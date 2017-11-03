@@ -23,7 +23,7 @@
     ga('send', 'pageview');
 </script>
 
-<c:set var="role" value="${sessionScope.user.role.roleName}"/>
+
 <c:if test="${not empty sessionScope.user}">
     <!-- Menu toggle -->
     <a href="#menu" id="menuLink" class="menu-link">
