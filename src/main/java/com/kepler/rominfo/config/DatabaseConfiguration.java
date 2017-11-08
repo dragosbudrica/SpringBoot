@@ -21,30 +21,26 @@ import java.util.Properties;
 @MapperScan("com.kepler.rominfo.dao")
 public class DatabaseConfiguration {
 
-   /* @Bean(name = "dataSource")
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/databaseTest");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("password");
-        return dataSource;
-    }*/
-    @Bean(name = "dataSource")
-    public BasicDataSource dataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-        BasicDataSource basicDataSource = new BasicDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
-
-        return basicDataSource;
-    }
+  @Bean(name = "dataSource")
+  public BasicDataSource dataSource() throws URISyntaxException {
+      String herokuEnv = System.getenv("HEROKU_ENV");
+      BasicDataSource basicDataSource = new BasicDataSource();
+      if ((herokuEnv != null) && (herokuEnv.length() > 0)) {
+          URI dbUri = new URI(System.getenv("DATABASE_URL"));
+          String username = dbUri.getUserInfo().split(":")[0];
+          String password = dbUri.getUserInfo().split(":")[1];
+          String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+          basicDataSource.setUrl(dbUrl);
+          basicDataSource.setUsername(username);
+          basicDataSource.setPassword(password);
+      } else {
+          basicDataSource.setDriverClassName("org.postgresql.Driver");
+          basicDataSource.setUrl("jdbc:postgresql://localhost:5432/databaseTest");
+          basicDataSource.setUsername("postgres");
+          basicDataSource.setPassword("password");
+      }
+      return basicDataSource;
+  }
 
     @Bean
     public DataSourceTransactionManager transactionManager() throws URISyntaxException {

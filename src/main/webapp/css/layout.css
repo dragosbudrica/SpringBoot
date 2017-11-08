@@ -51,6 +51,32 @@
     }
 }
 
+@media screen and (min-width: 1300px) and (max-width: 2000px){
+    #header {
+        margin-left: 25%;
+        margin-right: 25%;
+        width: 50%;
+    }
+
+    #content {
+        margin-left: 25%;
+        margin-right: 25%;
+        width: 50%;
+    }
+
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
 #welcomeMsg {
     display: inline;
 }
